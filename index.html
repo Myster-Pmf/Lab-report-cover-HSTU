@@ -700,7 +700,7 @@ function templateClassic(d){
       </div>
 
       <div style="margin-top:45px;width:100%;display:flex;justify-content:space-between;gap:45px;">
-        <div style="width:48%;">
+        <div style="width:55%;">
           <h3 class="t2-font-title" style="font-size:18px;padding-bottom:6px;margin-bottom:15px;border-bottom:1px solid #444;">SUBMITTED BY</h3>
           <table style="width:100%;border-collapse:collapse;font-size:15px;">
             <tr><td style="font-weight:bold;width:42%;padding:6px 0;">Name</td><td style="padding:6px 0;">${esc(d.studentName) || '—'}</td></tr>
@@ -727,7 +727,7 @@ function templateClassic(d){
       </div>
 
       <div style="margin-top:auto;text-align:center;">
-        ${LOGO_BASE64 ? `<img src="${LOGO_BASE64}" alt="HSTU Logo" style="width:115px;margin-bottom:14px;">` : ''}
+        ${LOGO_BASE64 ? `<img src="${LOGO_BASE64}" alt="HSTU Logo" style="width:90px;margin-bottom:14px;">` : ''}
         <div style="font-size:17px;font-weight:600;color:#333;letter-spacing:0.4px;line-height:1.5;">${esc(d.department ? d.department.toUpperCase() : 'DEPARTMENT OF ENGINEERING')}</div>
         <div style="margin-top:8px;font-size:22px;font-weight:700;color:#111;line-height:1.35;">HAJEE MOHAMMAD DANESH SCIENCE AND TECHNOLOGY UNIVERSITY</div>
         <div style="margin-top:6px;font-size:16px;font-weight:600;color:#666;">DINAJPUR-5200</div>

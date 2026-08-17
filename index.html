@@ -831,8 +831,7 @@ function templateClassicTop(d){
       <div style="text-align:center;margin-bottom:18px;">
         ${LOGO_BASE64 ? `<img src="${LOGO_BASE64}" alt="HSTU Logo" style="width:80px;margin-bottom:10px;">` : ''}
         <div style="font-size:20px;font-weight:700;color:#111;line-height:1.35;">HAJEE MOHAMMAD DANESH SCIENCE AND TECHNOLOGY UNIVERSITY</div>
-        <div style="font-size:15px;font-weight:600;color:#444;margin-top:4px;">${esc(d.department ? d.department.toUpperCase() : 'DEPARTMENT OF ENGINEERING')}</div>
-        <div style="font-size:14px;font-weight:500;color:#666;margin-top:2px;">DINAJPUR-5200</div>
+        <div style="font-size:14px;font-weight:500;color:#666;margin-top:4px;">DINAJPUR-5200</div>
       </div>
 
       <div style="width:100%;height:1px;background:#888;margin-bottom:16px;"></div>
@@ -881,6 +880,10 @@ function templateClassicTop(d){
         <div style="display:inline-block;padding:10px 36px;border:1px solid #444;border-radius:4px;font-weight:bold;font-size:18px;">${fmtDate(d.dateSubmission)}</div>
       </div>
 
+      <div style="margin-top:auto;text-align:center;padding-top:18px;">
+        <div style="font-size:17px;font-weight:600;color:#333;letter-spacing:0.4px;line-height:1.5;">${esc(d.department ? d.department.toUpperCase() : 'DEPARTMENT OF ENGINEERING')}</div>
+      </div>
+
     </div>
   </div>`;
 }
@@ -903,7 +906,6 @@ function templateThesisTop(d){
         <div style="font-size:20px;font-weight:bold;text-align:center;line-height:1.35;">
           HAJEE MOHAMMAD DANESH SCIENCE AND TECHNOLOGY UNIVERSITY
         </div>
-        <div style="margin-top:6px;font-size:15px;color:#444;text-align:center;line-height:1.4;">${esc(d.department ? d.department.toUpperCase() : 'DEPARTMENT OF ENGINEERING')}</div>
         <div style="text-align:center;color:#777;margin-top:4px;font-size:13px;">DINAJPUR-5200</div>
       </div>
 
@@ -912,10 +914,6 @@ function templateThesisTop(d){
       <div style="width:110px;height:2px;background:#c7a24b;"></div>
 
       <h1 style="font-size:34px;letter-spacing:6px;margin:18px 0 6px;">${esc((d.docType || 'LAB REPORT').toUpperCase())}</h1>
-
-      <div style="letter-spacing:3px;color:#777;font-size:13px;text-transform:uppercase;">
-        ${esc(d.department || 'Department of Engineering')}
-      </div>
 
       <div style="width:100%;height:1px;background:linear-gradient(to right,transparent,#c7a24b,transparent);margin:18px 0;"></div>
 
@@ -952,6 +950,10 @@ function templateThesisTop(d){
       <div style="text-align:center;margin:22px 0;">
         <div style="letter-spacing:3px;color:#777;font-size:13px;text-transform:uppercase;">Date of Submission</div>
         <b style="font-size:22px;">${fmtDate(d.dateSubmission)}</b>
+      </div>
+
+      <div style="margin-top:auto;text-align:center;">
+        <div style="margin-top:12px;font-size:16px;color:#444;text-align:center;line-height:1.4;">${esc(d.department ? d.department.toUpperCase() : 'DEPARTMENT OF ENGINEERING')}</div>
       </div>
 
     </div>

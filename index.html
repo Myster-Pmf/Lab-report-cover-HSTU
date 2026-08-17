@@ -814,10 +814,156 @@ function templateThesis(d){
   </div>`;
 }
 
+/* ------------------------------------------------------------------
+   TEMPLATE 4 — "Classic Bordered — Uni Header Top"
+------------------------------------------------------------------- */
+function templateClassicTop(d){
+  const title = (d.docType || 'LAB REPORT').toUpperCase();
+
+  return `
+  <div class="a4-page t2-font-body" style="position:relative;overflow:hidden;">
+
+    <div style="position:absolute;inset:18px;border:11px solid transparent;border-image:repeating-linear-gradient(45deg,#111 0 4px,#d79a00 4px 8px,#111 8px 12px,transparent 12px 16px) 20;"></div>
+
+    <div style="position:absolute;top:18mm;bottom:18mm;left:36mm;right:36mm;display:flex;flex-direction:column;align-items:center;">
+
+      <!-- University header at top -->
+      <div style="text-align:center;margin-bottom:18px;">
+        ${LOGO_BASE64 ? `<img src="${LOGO_BASE64}" alt="HSTU Logo" style="width:80px;margin-bottom:10px;">` : ''}
+        <div style="font-size:20px;font-weight:700;color:#111;line-height:1.35;">HAJEE MOHAMMAD DANESH SCIENCE AND TECHNOLOGY UNIVERSITY</div>
+        <div style="font-size:15px;font-weight:600;color:#444;margin-top:4px;">${esc(d.department ? d.department.toUpperCase() : 'DEPARTMENT OF ENGINEERING')}</div>
+        <div style="font-size:14px;font-weight:500;color:#666;margin-top:2px;">DINAJPUR-5200</div>
+      </div>
+
+      <div style="width:100%;height:1px;background:#888;margin-bottom:16px;"></div>
+
+      <div class="t2-font-title" style="font-size:34px;font-weight:700;letter-spacing:4px;margin-bottom:18px;">
+        ${esc(title)}
+      </div>
+
+      <div class="t2-font-title" style="font-size:14px;letter-spacing:2px;color:#666;text-transform:uppercase;">
+        COURSE TITLE
+      </div>
+
+      <div style="width:100%;text-align:center;margin-top:8px;">
+        <div style="width:100%;height:1px;background:#555;margin:10px 0;"></div>
+        <h1 style="font-size:30px;font-weight:700;color:#111;margin:10px 0;">${esc(d.courseTitle) || 'Course Title'}</h1>
+        <div style="width:100%;height:1px;background:#555;margin:10px 0;"></div>
+        <div style="display:inline-block;margin-top:12px;padding:8px 28px;border:1px solid #444;border-radius:4px;font-size:17px;">
+          <strong>Course Code:</strong> ${esc(d.courseCode) || '—'}
+        </div>
+      </div>
+
+      <div style="margin-top:45px;width:100%;display:flex;justify-content:space-between;gap:45px;">
+        <div style="width:55%;">
+          <h3 class="t2-font-title" style="font-size:18px;padding-bottom:6px;margin-bottom:15px;border-bottom:1px solid #444;">SUBMITTED BY</h3>
+          <table style="width:100%;border-collapse:collapse;font-size:15px;">
+            <tr><td style="font-weight:bold;width:42%;padding:6px 0;">Name</td><td style="padding:6px 0;">${esc(d.studentName) || '—'}</td></tr>
+            <tr><td style="font-weight:bold;width:42%;padding:6px 0;">Student ID</td><td style="padding:6px 0;">${esc(d.studentId) || '—'}</td></tr>
+            <tr><td style="font-weight:bold;width:42%;padding:6px 0;">Level</td><td style="padding:6px 0;">${esc(d.level) || '—'}</td></tr>
+            <tr><td style="font-weight:bold;width:42%;padding:6px 0;">Semester</td><td style="padding:6px 0;">${esc(d.semester) || '—'}</td></tr>
+            <tr><td style="font-weight:bold;width:42%;padding:6px 0;">Session</td><td style="padding:6px 0;">${esc(d.session) || '—'}</td></tr>
+            <tr><td style="font-weight:bold;width:42%;padding:6px 0;">Department</td><td style="padding:6px 0;">${esc(d.department) || '—'}</td></tr>
+            <tr><td style="font-weight:bold;width:42%;padding:6px 0;">Faculty</td><td style="padding:6px 0;">${esc(d.faculty) || '—'}</td></tr>
+          </table>
+        </div>
+
+        <div style="width:48%;text-align:center;line-height:1.7;">
+          <h3 class="t2-font-title" style="font-size:18px;padding-bottom:6px;margin-bottom:15px;border-bottom:1px solid #444;">SUBMITTED TO</h3>
+          <div style="font-size:21px;font-weight:bold;margin-top:4px;">${esc(d.teacherName) || '—'}</div>
+          <div style="margin-top:10px;">${esc(d.teacherTitle) || '—'}</div>
+          <div style="margin-top:10px;">${esc(d.teacherDept) || '—'}</div>
+        </div>
+      </div>
+
+      <div style="margin-top:38px;text-align:center;">
+        <div class="t2-font-title" style="font-size:15px;letter-spacing:2px;color:#444;margin-bottom:10px;">DATE OF SUBMISSION</div>
+        <div style="display:inline-block;padding:10px 36px;border:1px solid #444;border-radius:4px;font-weight:bold;font-size:18px;">${fmtDate(d.dateSubmission)}</div>
+      </div>
+
+    </div>
+  </div>`;
+}
+
+/* ------------------------------------------------------------------
+   TEMPLATE 5 — "Thesis Styled — Uni Header Top"
+------------------------------------------------------------------- */
+function templateThesisTop(d){
+  return `
+  <div class="a4-page" style="position:relative;overflow:hidden;background:#fdfcf8;">
+
+    <div style="position:absolute;inset:18mm;border:2px solid #c7a24b;"></div>
+    <div style="position:absolute;inset:22mm;border:1px solid #e4cf95;"></div>
+
+    <div style="position:absolute;inset:28mm;display:flex;flex-direction:column;align-items:center;">
+
+      <!-- University header at top -->
+      <div style="text-align:center;margin-bottom:10px;">
+        ${LOGO_BASE64 ? `<img src="${LOGO_BASE64}" alt="HSTU Logo" style="width:90px;margin-bottom:8px;">` : ''}
+        <div style="font-size:20px;font-weight:bold;text-align:center;line-height:1.35;">
+          HAJEE MOHAMMAD DANESH SCIENCE AND TECHNOLOGY UNIVERSITY
+        </div>
+        <div style="margin-top:6px;font-size:15px;color:#444;text-align:center;line-height:1.4;">${esc(d.department ? d.department.toUpperCase() : 'DEPARTMENT OF ENGINEERING')}</div>
+        <div style="text-align:center;color:#777;margin-top:4px;font-size:13px;">DINAJPUR-5200</div>
+      </div>
+
+      <div style="width:100%;height:1px;background:linear-gradient(to right,transparent,#c7a24b,transparent);margin:14px 0;"></div>
+
+      <div style="width:110px;height:2px;background:#c7a24b;"></div>
+
+      <h1 style="font-size:34px;letter-spacing:6px;margin:18px 0 6px;">${esc((d.docType || 'LAB REPORT').toUpperCase())}</h1>
+
+      <div style="letter-spacing:3px;color:#777;font-size:13px;text-transform:uppercase;">
+        ${esc(d.department || 'Department of Engineering')}
+      </div>
+
+      <div style="width:100%;height:1px;background:linear-gradient(to right,transparent,#c7a24b,transparent);margin:18px 0;"></div>
+
+      <div style="font-size:30px;font-weight:bold;">${esc(d.courseTitle) || 'Course Title'}</div>
+
+      <div style="margin-top:10px;color:#555;">Course Code • ${esc(d.courseCode) || '—'}</div>
+
+      <div style="width:100%;height:1px;background:linear-gradient(to right,transparent,#c7a24b,transparent);margin:18px 0;"></div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;width:100%;margin-top:10px;">
+
+        <div>
+          <h3 style="font-size:18px;border-bottom:1px solid #c7a24b;padding-bottom:6px;margin-bottom:15px;">SUBMITTED BY</h3>
+          <table style="width:100%;border-collapse:collapse;">
+            <tr><td style="padding:5px 0;font-size:15px;"><b>Name</b></td><td style="padding:5px 0;font-size:15px;">${esc(d.studentName) || '—'}</td></tr>
+            <tr><td style="padding:5px 0;font-size:15px;"><b>Student ID</b></td><td style="padding:5px 0;font-size:15px;">${esc(d.studentId) || '—'}</td></tr>
+            <tr><td style="padding:5px 0;font-size:15px;"><b>Level</b></td><td style="padding:5px 0;font-size:15px;">${esc(d.level) || '—'}</td></tr>
+            <tr><td style="padding:5px 0;font-size:15px;"><b>Semester</b></td><td style="padding:5px 0;font-size:15px;">${esc(d.semester) || '—'}</td></tr>
+            <tr><td style="padding:5px 0;font-size:15px;"><b>Session</b></td><td style="padding:5px 0;font-size:15px;">${esc(d.session) || '—'}</td></tr>
+            <tr><td style="padding:5px 0;font-size:15px;"><b>Department</b></td><td style="padding:5px 0;font-size:15px;">${esc(d.department) || '—'}</td></tr>
+            <tr><td style="padding:5px 0;font-size:15px;"><b>Faculty</b></td><td style="padding:5px 0;font-size:15px;">${esc(d.faculty) || '—'}</td></tr>
+          </table>
+        </div>
+
+        <div style="text-align:center;line-height:1.8;">
+          <h3 style="font-size:18px;border-bottom:1px solid #c7a24b;padding-bottom:6px;margin-bottom:15px;">SUBMITTED TO</h3>
+          <div style="font-size:22px;font-weight:bold;">${esc(d.teacherName) || '—'}</div>
+          <div>${esc(d.teacherTitle) || '—'}</div>
+          <div style="margin-top:10px;">${esc(d.teacherDept) || '—'}</div>
+        </div>
+
+      </div>
+
+      <div style="text-align:center;margin:22px 0;">
+        <div style="letter-spacing:3px;color:#777;font-size:13px;text-transform:uppercase;">Date of Submission</div>
+        <b style="font-size:22px;">${fmtDate(d.dateSubmission)}</b>
+      </div>
+
+    </div>
+  </div>`;
+}
+
 const TEMPLATES = [
-  {id:'classic', name:'Classic Report Cover', build:templateClassic},
-  {id:'thesis', name:'Thesis Styled Cover', build:templateThesis},
-  {id:'circuit', name:"PMF's Style", build:templateCircuit},
+  {id:'classic',     name:'Classic Report Cover',             build:templateClassic},
+  {id:'thesis',      name:'Thesis Styled Cover',              build:templateThesis},
+  {id:'circuit',     name:"PMF's Style",                      build:templateCircuit},
+  {id:'classicTop',  name:'Classic Cover — Uni Header Top',   build:templateClassicTop},
+  {id:'thesisTop',   name:'Thesis Cover — Uni Header Top',    build:templateThesisTop},
 ];
 
 /* ------------------------------------------------------------------

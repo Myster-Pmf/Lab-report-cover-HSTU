@@ -708,22 +708,22 @@ function templateClassic(d){
         </div>
       </div>
 
-      <div style="margin-top:45px;width:100%;display:flex;justify-content:space-between;gap:45px;">
+      <div style="margin-top:45px;width:100%;display:flex;justify-content:space-between;gap:45px;align-items:flex-start;">
         <div style="width:55%;">
-          <h3 class="t2-font-title" style="font-size:18px;padding-bottom:6px;margin-bottom:15px;border-bottom:1px solid #444;">SUBMITTED BY</h3>
+          <h3 class="t2-font-title" style="font-size:18px;padding-bottom:6px;margin:0 0 15px;border-bottom:1px solid #444;">SUBMITTED BY</h3>
           <table style="width:100%;border-collapse:collapse;font-size:15px;">
-            <tr><td style="font-weight:bold;width:42%;padding:6px 0;">Name</td><td style="padding:6px 0;">${esc(d.studentName) || '—'}</td></tr>
-            <tr><td style="font-weight:bold;width:42%;padding:6px 0;">Student ID</td><td style="padding:6px 0;">${esc(d.studentId) || '—'}</td></tr>
-            <tr><td style="font-weight:bold;width:42%;padding:6px 0;">Level</td><td style="padding:6px 0;">${esc(d.level) || '—'}</td></tr>
-            <tr><td style="font-weight:bold;width:42%;padding:6px 0;">Semester</td><td style="padding:6px 0;">${esc(d.semester) || '—'}</td></tr>
-            <tr><td style="font-weight:bold;width:42%;padding:6px 0;">Session</td><td style="padding:6px 0;">${esc(d.session) || '—'}</td></tr>
-            <tr><td style="font-weight:bold;width:42%;padding:6px 0;">Department</td><td style="padding:6px 0;">${esc(d.department) || '—'}</td></tr>
-            <tr><td style="font-weight:bold;width:42%;padding:6px 0;">Faculty</td><td style="padding:6px 0;">${esc(d.faculty) || '—'}</td></tr>
+            <tr><td style="font-weight:bold;width:42%;padding:6px 0;vertical-align:top;">Name</td><td style="padding:6px 0;text-align:left;vertical-align:top;">${esc(d.studentName) || '—'}</td></tr>
+            <tr><td style="font-weight:bold;width:42%;padding:6px 0;vertical-align:top;">Student ID</td><td style="padding:6px 0;text-align:left;vertical-align:top;">${esc(d.studentId) || '—'}</td></tr>
+            <tr><td style="font-weight:bold;width:42%;padding:6px 0;vertical-align:top;">Level</td><td style="padding:6px 0;text-align:left;vertical-align:top;">${esc(d.level) || '—'}</td></tr>
+            <tr><td style="font-weight:bold;width:42%;padding:6px 0;vertical-align:top;">Semester</td><td style="padding:6px 0;text-align:left;vertical-align:top;">${esc(d.semester) || '—'}</td></tr>
+            <tr><td style="font-weight:bold;width:42%;padding:6px 0;vertical-align:top;">Session</td><td style="padding:6px 0;text-align:left;vertical-align:top;">${esc(d.session) || '—'}</td></tr>
+            <tr><td style="font-weight:bold;width:42%;padding:6px 0;vertical-align:top;">Department</td><td style="padding:6px 0;text-align:left;vertical-align:top;">${esc(d.department) || '—'}</td></tr>
+            <tr><td style="font-weight:bold;width:42%;padding:6px 0;vertical-align:top;">Faculty</td><td style="padding:6px 0;text-align:left;vertical-align:top;">${esc(d.faculty) || '—'}</td></tr>
           </table>
         </div>
 
         <div style="width:48%;text-align:center;line-height:1.7;">
-          <h3 class="t2-font-title" style="font-size:18px;padding-bottom:6px;margin-bottom:15px;border-bottom:1px solid #444;">SUBMITTED TO</h3>
+          <h3 class="t2-font-title" style="font-size:18px;padding-bottom:6px;margin:0 0 15px;border-bottom:1px solid #444;">SUBMITTED TO</h3>
           <div style="font-size:21px;font-weight:bold;margin-top:4px;">${esc(d.teacherName) || '—'}</div>
           <div style="margin-top:10px;">${esc(d.teacherTitle) || '—'}</div>
           <div style="margin-top:10px;">${esc(d.teacherDept) || '—'}</div>
@@ -853,22 +853,22 @@ function templateClassicTop(d){
         </div>
       </div>
 
-      <div style="margin-top:45px;width:100%;display:flex;justify-content:space-between;gap:45px;">
+      <div style="margin-top:45px;width:100%;display:flex;justify-content:space-between;gap:45px;align-items:flex-start;">
         <div style="width:55%;">
-          <h3 class="t2-font-title" style="font-size:18px;padding-bottom:6px;margin-bottom:15px;border-bottom:1px solid #444;">SUBMITTED BY</h3>
+          <h3 class="t2-font-title" style="font-size:18px;padding-bottom:6px;margin:0 0 15px;border-bottom:1px solid #444;">SUBMITTED BY</h3>
           <table style="width:100%;border-collapse:collapse;font-size:15px;">
-            <tr><td style="font-weight:bold;width:42%;padding:6px 0;">Name</td><td style="padding:6px 0;">${esc(d.studentName) || '—'}</td></tr>
-            <tr><td style="font-weight:bold;width:42%;padding:6px 0;">Student ID</td><td style="padding:6px 0;">${esc(d.studentId) || '—'}</td></tr>
-            <tr><td style="font-weight:bold;width:42%;padding:6px 0;">Level</td><td style="padding:6px 0;">${esc(d.level) || '—'}</td></tr>
-            <tr><td style="font-weight:bold;width:42%;padding:6px 0;">Semester</td><td style="padding:6px 0;">${esc(d.semester) || '—'}</td></tr>
-            <tr><td style="font-weight:bold;width:42%;padding:6px 0;">Session</td><td style="padding:6px 0;">${esc(d.session) || '—'}</td></tr>
-            <tr><td style="font-weight:bold;width:42%;padding:6px 0;">Department</td><td style="padding:6px 0;">${esc(d.department) || '—'}</td></tr>
-            <tr><td style="font-weight:bold;width:42%;padding:6px 0;">Faculty</td><td style="padding:6px 0;">${esc(d.faculty) || '—'}</td></tr>
+            <tr><td style="font-weight:bold;width:42%;padding:6px 0;vertical-align:top;">Name</td><td style="padding:6px 0;text-align:left;vertical-align:top;">${esc(d.studentName) || '—'}</td></tr>
+            <tr><td style="font-weight:bold;width:42%;padding:6px 0;vertical-align:top;">Student ID</td><td style="padding:6px 0;text-align:left;vertical-align:top;">${esc(d.studentId) || '—'}</td></tr>
+            <tr><td style="font-weight:bold;width:42%;padding:6px 0;vertical-align:top;">Level</td><td style="padding:6px 0;text-align:left;vertical-align:top;">${esc(d.level) || '—'}</td></tr>
+            <tr><td style="font-weight:bold;width:42%;padding:6px 0;vertical-align:top;">Semester</td><td style="padding:6px 0;text-align:left;vertical-align:top;">${esc(d.semester) || '—'}</td></tr>
+            <tr><td style="font-weight:bold;width:42%;padding:6px 0;vertical-align:top;">Session</td><td style="padding:6px 0;text-align:left;vertical-align:top;">${esc(d.session) || '—'}</td></tr>
+            <tr><td style="font-weight:bold;width:42%;padding:6px 0;vertical-align:top;">Department</td><td style="padding:6px 0;text-align:left;vertical-align:top;">${esc(d.department) || '—'}</td></tr>
+            <tr><td style="font-weight:bold;width:42%;padding:6px 0;vertical-align:top;">Faculty</td><td style="padding:6px 0;text-align:left;vertical-align:top;">${esc(d.faculty) || '—'}</td></tr>
           </table>
         </div>
 
         <div style="width:48%;text-align:center;line-height:1.7;">
-          <h3 class="t2-font-title" style="font-size:18px;padding-bottom:6px;margin-bottom:15px;border-bottom:1px solid #444;">SUBMITTED TO</h3>
+          <h3 class="t2-font-title" style="font-size:18px;padding-bottom:6px;margin:0 0 15px;border-bottom:1px solid #444;">SUBMITTED TO</h3>
           <div style="font-size:21px;font-weight:bold;margin-top:4px;">${esc(d.teacherName) || '—'}</div>
           <div style="margin-top:10px;">${esc(d.teacherTitle) || '—'}</div>
           <div style="margin-top:10px;">${esc(d.teacherDept) || '—'}</div>

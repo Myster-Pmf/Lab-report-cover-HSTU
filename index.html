@@ -270,11 +270,18 @@
       <p class="section-title">Course Details</p>
       <div class="field-grid">
         <div class="field">
+          <label for="docType">Cover Type</label>
+          <select id="docType" name="docType">
+            <option value="Lab Report">Lab Report</option>
+            <option value="Assignment">Assignment</option>
+          </select>
+        </div>
+        <div class="field">
           <label for="courseCode">Course Code</label>
           <input id="courseCode" name="courseCode" type="text" placeholder="e.g. EEE 158" required>
         </div>
-        <div class="field">
-          <label for="courseTitle">Course Title</label>
+        <div class="field full">
+          <label id="courseTitleLabel" for="courseTitle">Course Title</label>
           <input id="courseTitle" name="courseTitle" type="text" placeholder="e.g. Electrical Drives (Sessional)" required>
         </div>
         <div class="field">
@@ -291,8 +298,8 @@
         <summary style="opacity:0.4;cursor:not-allowed;pointer-events:none;">Optional details (experiment/assignment no) — Coming Soon</summary>
         <div class="field-grid" style="opacity:0.4;pointer-events:none;">
           <div class="field">
-            <label for="docType">Document Type</label>
-            <select id="docType" name="docType" disabled>
+            <label>Document Type</label>
+            <select name="docTypeOptional" disabled>
               <option value="Lab Report">Lab Report</option>
               <option value="Assignment">Assignment</option>
               <option value="Report">Report</option>
@@ -457,12 +464,27 @@ function updateDeptDropdown(faculty, selectedDept){
   });
 }
 
+/* ------------------------------------------------------------------
+   COVER TYPE UI — swap labels/placeholders when Assignment is chosen
+------------------------------------------------------------------- */
+function updateCoverTypeUI(){
+  const docTypeEl  = document.getElementById('docType');
+  const titleLabel = document.getElementById('courseTitleLabel');
+  const titleInput = document.getElementById('courseTitle');
+  if(!docTypeEl) return;
+  const isAssignment = docTypeEl.value === 'Assignment';
+  if(titleLabel) titleLabel.textContent = isAssignment ? 'Name of Assignment' : 'Course Title';
+  if(titleInput) titleInput.placeholder = isAssignment
+    ? 'e.g. Study on Newton\'s Laws of Motion'
+    : 'e.g. Electrical Drives (Sessional)';
+}
+
 document.addEventListener('DOMContentLoaded', async ()=>{
   await loadLogoAsBase64();
   populateFacultyDropdown();
   loadSaved();
   const facultySelect = document.getElementById('faculty');
-  const deptSelect = document.getElementById('department');
+  const deptSelect    = document.getElementById('department');
   updateDeptDropdown(facultySelect.value, deptSelect.value);
   facultySelect.addEventListener('change', ()=>{
     updateDeptDropdown(facultySelect.value, '');
@@ -475,9 +497,15 @@ document.addEventListener('DOMContentLoaded', async ()=>{
   if(!document.getElementById('session').value){
     document.getElementById('session').value = new Date().getFullYear();
   }
+  // Wire cover-type switcher
+  const docTypeEl = document.getElementById('docType');
+  if(docTypeEl){
+    docTypeEl.addEventListener('change', ()=>{ updateCoverTypeUI(); saveAll(); });
+    updateCoverTypeUI(); // apply saved/default state on load
+  }
   FIELD_IDS.forEach(id=>{
     const el = document.getElementById(id);
-    if(el && !['faculty','department'].includes(id)) el.addEventListener('input', saveAll);
+    if(el && !['faculty','department','docType'].includes(id)) el.addEventListener('input', saveAll);
   });
 });
 
@@ -485,6 +513,7 @@ document.getElementById('clearBtn').addEventListener('click', ()=>{
   if(confirm('Clear all saved form data from this browser?')){
     localStorage.removeItem(STORAGE_KEY);
     document.getElementById('coverForm').reset();
+    updateCoverTypeUI(); // reset labels back to Lab Report defaults
   }
 });
 
@@ -614,7 +643,7 @@ function templateCircuit(d){
       <div style="width:100%;max-width:576px;text-align:center;">
         <div style="margin-bottom:20px;">
           <span class="t1-font-tech" style="font-size:12px;font-weight:700;color:#0d9488;text-transform:uppercase;letter-spacing:0.3em;display:flex;align-items:center;justify-content:center;gap:8px;">
-            <span class="material-symbols-outlined" style="font-size:16px;">bolt</span> Course Title
+            <span class="material-symbols-outlined" style="font-size:16px;">bolt</span> ${d.docType === 'Assignment' ? 'Name of Assignment' : 'Course Title'}
           </span>
           <h3 style="font-size:36px;font-weight:800;color:#1e293b;text-transform:uppercase;line-height:1.2;margin:8px 0 0;padding:0 16px;">
             ${fmtCourseTitle(d.courseTitle)}
@@ -696,7 +725,7 @@ function templateClassic(d){
       </div>
 
       <div class="t2-font-title" style="font-size:14px;letter-spacing:2px;color:#666;text-transform:uppercase;">
-        COURSE TITLE
+        ${d.docType === 'Assignment' ? 'NAME OF THE ASSIGNMENT' : 'COURSE TITLE'}
       </div>
 
       <div style="width:100%;text-align:center;margin-top:8px;">
@@ -841,7 +870,7 @@ function templateClassicTop(d){
       </div>
 
       <div class="t2-font-title" style="font-size:14px;letter-spacing:2px;color:#666;text-transform:uppercase;">
-        COURSE TITLE
+        ${d.docType === 'Assignment' ? 'NAME OF THE ASSIGNMENT' : 'COURSE TITLE'}
       </div>
 
       <div style="width:100%;text-align:center;margin-top:8px;">
